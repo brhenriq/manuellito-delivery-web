@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import api from '../../services/api';
 
 import { Container, Tag }  from './styles';
@@ -19,10 +20,16 @@ const OrdersCard: React.FC<IOrdersCardProps> = ({
     total
 }) => {
 
+  const history = useHistory();
+
+
     async function alterStatus(status: string) {
         await api.patch(`/orders/status/${id}`, {
           status
-      });
+        }).then(() => {
+          alert('Alteração de status realizado com sucesso!');
+          history.push('/home');
+        });
     }
 
     return (

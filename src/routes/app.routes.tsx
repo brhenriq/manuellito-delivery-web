@@ -9,12 +9,14 @@ import Layout from "../components/Layout";
 import ListProducts from "../pages/ListProducts";
 import ListOrders from "../pages/ListOrders";
 import ListUsers from "../pages/ListUsers";
+import EditProduct from "../pages/EditProduct";
 
 const Routes: React.FC = () => (
   <>
     <Layout>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/editProducts" component={EditProduct} />
         <Route path="/newProducts" component={NewProducts} />
         <Route path="/newProvider" component={NewProvider} />
         <Route path="/newCategory" component={NewCategory} />

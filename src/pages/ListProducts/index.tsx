@@ -36,9 +36,11 @@ const ListProducts: React.FC = () => {
   return (
     <Container>
       <div>
-        <h1 className="newProductTitle">Relatório de Produtos em estoque</h1>
+        <h1 className="newProductTitle">
+          Relatório de Produtos em estoque
+        </h1>
         <Link to="newProducts">
-        	<FiPlusCircle className="Plus" />
+          <FiPlusCircle className="Plus" />
         </Link>
       </div>
 

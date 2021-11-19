@@ -13,6 +13,7 @@ interface IData {
 const ListOrders: React.FC = () => {
   const [data, setData] = useState([]);
 
+
   useEffect(() => {
     try {
       handleProducts();
@@ -24,6 +25,7 @@ const ListOrders: React.FC = () => {
   async function handleProducts() {
     const response = await api.get("/orders");
     console.log(response);
+
     setData(response.data);
   }
 

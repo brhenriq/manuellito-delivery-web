@@ -1,5 +1,7 @@
 import React from 'react';
 import { FiTrash2, FiEdit3 } from 'react-icons/fi';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
 import { Container, Tag }  from './styles';
@@ -20,6 +22,14 @@ const ProductsCard: React.FC<IProductsCardProps> = ({
     quantity
 }) => {
 
+
+  const history = useHistory();
+
+    async function handleEditProduct() {
+        localStorage.setItem('id_Product', id);
+        history.push('/editProduct');
+    }
+
     async function deleteProduct() {
         await api.delete(`/products/${id}`);
     }
@@ -32,11 +42,13 @@ const ProductsCard: React.FC<IProductsCardProps> = ({
             <small>{subtitle}</small>
         </div>
         <h3>{quantity}</h3>
-        <div>
+        {/* <div>
             <FiTrash2 onClick={ deleteProduct } color="#D93662"/>
-        </div>
+            </div> */}
         <div>
-            <FiEdit3/>
+            <Link to="editProducts">
+                <FiEdit3 onClick={ handleEditProduct }/>
+            </Link>
         </div>
     </Container>
     )
